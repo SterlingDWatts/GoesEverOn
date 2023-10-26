@@ -129,7 +129,7 @@ function HomePage() {
             variant="contained"
             size="large"
             color="secondary"
-            href="https://www.tiktok.com/@GoesEverOn"
+            href="https://www.tiktok.com/@goeseveron?_t=8gqLnTebFpT&_r=1"
             startIcon={
               <SvgIcon>
                 <TikTok fill="white" />
