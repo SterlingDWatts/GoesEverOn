@@ -79,7 +79,7 @@ export default function DrawerAppBar() {
               onClick={handleDrawerToggle}
               sx={{ mr: 2, display: { sm: "none" } }}
             >
-              <MenuIcon />
+              <MenuIcon sx={{ color: isNotAtTop ? "default" : "white" }} />
             </IconButton>
             <Box
               sx={{
