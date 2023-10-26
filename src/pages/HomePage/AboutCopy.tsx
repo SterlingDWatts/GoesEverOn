@@ -3,7 +3,7 @@ import React from "react";
 export default function AboutCopy() {
   return (
     <>
-      <strong style={{ fontSize: "24px" }}>We are Mark and Sterling</strong>, two best friends discussing our favorite
+      <strong style={{ fontSize: "18px" }}>We are Mark and Sterling</strong>, two best friends discussing our favorite
       forms of entertainment. <br />
       <br />
       Every Monday on YouTube we dive deep into an episode of great television and then break it down in a conversation
