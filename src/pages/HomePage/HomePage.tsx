@@ -16,9 +16,9 @@ import Twitter from "../../svgs/Twitter";
 import YouTube from "../../svgs/YouTube";
 // images
 import roadJustWordsClearBackground from "../../assets/roadJustWordsClearBackground.png";
-import markSterlingWedding from "./markSterlingWedding.png";
-import blueMark from "./blue_mark.png";
-import blueSterling from "./blue_sterling.png";
+import markSterlingWedding from "../../assets/markSterlingWedding.png";
+import blueMark from "../../assets/blue_mark.png";
+import blueSterling from "../../assets/blue_sterling.png";
 
 import "./HomePage.css";
 

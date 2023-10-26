@@ -14,7 +14,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import Slide from "@mui/material/Slide";
-import roadCircle from "./Road_circle.png";
+// images
+import roadCircle from "../../assets/Road_circle.png";
 import roadJustWordsClearBackground from "../../assets/roadJustWordsClearBackground.png";
 
 import "./DrawerAppBar.css";
