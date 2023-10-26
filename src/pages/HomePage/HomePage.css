@@ -1,0 +1,18 @@
+.HomePage .img__box {
+  display: block;
+}
+
+.HomePage .logo {
+  width: 360px;
+  max-width: 40%;
+}
+
+.HomePage .blue {
+  width: 35vw;
+}
+
+@media screen and (min-width: 1200px) {
+  .HomePage .blue {
+    margin-top: 48px;
+  }
+}
