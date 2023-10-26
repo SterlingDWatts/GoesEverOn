@@ -32,8 +32,7 @@ function HomePage() {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            background:
-              "radial-gradient(circle, rgba(75,75,75,1) 0%, rgba(44,44,44,1) 100%)",
+            background: "radial-gradient(circle, rgba(75,75,75,1) 0%, rgba(44,44,44,1) 100%)",
           }}
         >
           <Box
@@ -46,12 +45,7 @@ function HomePage() {
               marginLeft: "24px",
             }}
           >
-            <img
-              className="img__box"
-              src={markSterlingWedding}
-              alt="Mark and Sterling"
-              width="100%"
-            />
+            <img className="img__box" src={markSterlingWedding} alt="Mark and Sterling" width="100%" />
 
             <Box
               sx={{
@@ -66,16 +60,9 @@ function HomePage() {
                 alignItems: "start",
               }}
             >
-              <img
-                className="logo"
-                src={roadJustWordsClearBackground}
-                alt="Logo"
-              />
+              <img className="logo" src={roadJustWordsClearBackground} alt="Logo" />
               <Box sx={{ maxWidth: "40%", paddingTop: "24px" }}>
-                <Typography
-                  variant="subtitle1"
-                  sx={{ color: "white", lineHeight: 1 }}
-                >
+                <Typography variant="subtitle1" sx={{ color: "white", lineHeight: 1 }}>
                   Journey through great TV, movies, music, and more with us!
                 </Typography>
               </Box>
@@ -96,10 +83,7 @@ function HomePage() {
       >
         <img className="blue" src={blueMark} alt="Mark" />
         <Box sx={{ width: "35vw", display: { xs: "none", lg: "revert" } }}>
-          <Typography
-            variant="body1"
-            sx={{ color: "white", lineHeight: 1.2, textAlign: "center" }}
-          >
+          <Typography variant="body1" sx={{ color: "white", lineHeight: 1.2, textAlign: "center" }}>
             <AboutCopy />
           </Typography>
         </Box>
@@ -125,10 +109,7 @@ function HomePage() {
             marginRight: "auto",
           }}
         >
-          <Typography
-            variant="h2"
-            sx={{ textAlign: "center", fontWeight: 600 }}
-          >
+          <Typography variant="h2" sx={{ textAlign: "center", fontWeight: 600 }}>
             Connect with us!
           </Typography>
           <Button

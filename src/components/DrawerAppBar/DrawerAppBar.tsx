@@ -39,16 +39,8 @@ export default function DrawerAppBar() {
   };
 
   const drawer = (
-    <Box
-      className="DrawerAppBar"
-      onClick={handleDrawerToggle}
-      sx={{ textAlign: "center" }}
-    >
-      <img
-        className="words-logo"
-        alt="road goes ever on and on"
-        src={roadJustWordsClearBackground}
-      />
+    <Box className="DrawerAppBar" onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+      <img className="words-logo" alt="road goes ever on and on" src={roadJustWordsClearBackground} />
       <Divider />
       <List>
         {navItems.map((item) => (
@@ -66,11 +58,7 @@ export default function DrawerAppBar() {
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <Slide appear={false} direction="down" in={!scrollTrigger}>
-        <AppBar
-          component="nav"
-          color={isNotAtTop ? "default" : "transparent"}
-          elevation={isNotAtTop ? 4 : 0}
-        >
+        <AppBar component="nav" color={isNotAtTop ? "default" : "transparent"} elevation={isNotAtTop ? 4 : 0}>
           <Toolbar>
             <IconButton
               color="inherit"
@@ -87,20 +75,11 @@ export default function DrawerAppBar() {
                 display: { xs: "none", sm: "block" },
               }}
             >
-              <img
-                className="circle-logo"
-                src={roadCircle}
-                alt="Logo"
-                height="36px"
-              />
+              <img className="circle-logo" src={roadCircle} alt="Logo" height="36px" />
             </Box>
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
               {navItems.map((item) => (
-                <Button
-                  key={item.title}
-                  href={item.href}
-                  sx={{ color: isNotAtTop ? "#000" : "#fff" }}
-                >
+                <Button key={item.title} href={item.href} sx={{ color: isNotAtTop ? "#000" : "#fff" }}>
                   {item.title}
                 </Button>
               ))}
