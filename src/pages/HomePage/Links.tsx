@@ -38,13 +38,7 @@ export default function Links() {
     { title: "Spotify", href: "https://open.spotify.com/show/3Bop2xzIH9wK4yZfva2CAw", icon: <Spotify fill="white" /> },
   ];
   return (
-    <Box
-      id="links"
-      sx={{
-        padding: "48px",
-        backgroundColor: "#D8DDD6",
-      }}
-    >
+    <Box id="links" sx={{ padding: "48px" }}>
       <Stack
         spacing={4}
         sx={{

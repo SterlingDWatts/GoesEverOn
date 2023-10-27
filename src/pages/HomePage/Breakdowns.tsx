@@ -72,7 +72,7 @@ export default function Breakdowns() {
     ],
   ];
   return (
-    <Box id="breakdowns" sx={{ padding: "24px 8px 48px" }}>
+    <Box id="breakdowns" sx={{ padding: "24px 8px 48px", backgroundColor: "#D8DDD6" }}>
       <Box sx={{ maxWidth: "676px", margin: "0 auto" }}>
         <Typography variant="h2" sx={{ textAlign: "center", fontWeight: 600 }}>
           Breakdowns
