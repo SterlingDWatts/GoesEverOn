@@ -14,14 +14,15 @@ import Twitter from "../../svgs/Twitter";
 import YouTube from "../../svgs/YouTube";
 
 interface LinkProps {
-  title: string;
-  href: string;
   icon: React.ReactNode;
+  title: string;
+  href?: string;
+  onClick?: () => void;
 }
 
-function Link({ title, href, icon }: LinkProps) {
+function Link({ icon, title, ...props }: LinkProps) {
   return (
-    <Button variant="contained" size="large" color="secondary" href={href} startIcon={<SvgIcon>{icon}</SvgIcon>}>
+    <Button variant="contained" size="large" color="secondary" {...props} startIcon={<SvgIcon>{icon}</SvgIcon>}>
       {title}
     </Button>
   );
@@ -56,7 +57,7 @@ export default function Links() {
           Connect with us!
         </Typography>
         {links.map((link) => (
-          <Link key={link.title} title={link.title} href={link.href} icon={link.icon} />
+          <Link key={link.title} {...link} />
         ))}
       </Stack>
     </Box>
