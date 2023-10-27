@@ -74,7 +74,7 @@ export default function Breakdowns() {
   return (
     <Box id="breakdowns" sx={{ padding: "24px 8px 48px" }}>
       <Box sx={{ maxWidth: "676px", margin: "0 auto" }}>
-        <Typography variant="h2" sx={{ textAlign: "center" }}>
+        <Typography variant="h2" sx={{ textAlign: "center", fontWeight: 600 }}>
           Breakdowns
         </Typography>
         <Typography variant="body1" textAlign="center">

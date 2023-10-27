@@ -1,6 +1,7 @@
 import * as React from "react";
 // mui
 import Box from "@mui/material/Box";
+import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 // components
@@ -19,7 +20,14 @@ function HomePage() {
       <Links />
       <Breakdowns />
       <Box id="shorts" textAlign="center" sx={{ padding: "24px" }}>
-        <Typography variant="h2">Shorts</Typography>
+        <Typography variant="h2" sx={{ fontWeight: 600 }}>
+          Shorts
+        </Typography>
+
+        <Typography variant="body1" textAlign="center">
+          Here is a little taste of some of our most recent shorts, if you want more click{" "}
+          <Link href="https://www.youtube.com/@GoesEverOn/shorts">here</Link>
+        </Typography>
         <Box sx={{ overflowY: "scroll", margin: "12px 0 0" }}>
           <Stack spacing={4} direction="row">
             <iframe
