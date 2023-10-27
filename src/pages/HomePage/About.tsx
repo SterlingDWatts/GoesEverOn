@@ -11,6 +11,11 @@ import blueSterling from "../../assets/blue_sterling.png";
 export default function About() {
   return (
     <Box id="about">
+      <Box sx={{ padding: "48px", display: { lg: "none" } }}>
+        <Typography variant="body1">
+          <AboutCopy />
+        </Typography>
+      </Box>
       <Box
         sx={{
           backgroundColor: "#577f7e",
@@ -27,11 +32,6 @@ export default function About() {
           </Typography>
         </Box>
         <img className="blue" src={blueSterling} alt="Sterling" />
-      </Box>
-      <Box sx={{ padding: "48px", display: { lg: "none" } }}>
-        <Typography variant="body1">
-          <AboutCopy />
-        </Typography>
       </Box>
     </Box>
   );

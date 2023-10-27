@@ -26,6 +26,7 @@ const navItems = [
   { title: "About", href: "#about" },
   { title: "Links", href: "#links" },
   { title: "Breakdowns", href: "#breakdowns" },
+  { title: "Shorts", href: "#shorts" },
 ];
 
 export default function DrawerAppBar() {
