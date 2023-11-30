@@ -38,10 +38,14 @@ export default function Breakdowns() {
 
   const videoLinks = [
     [
-      "https://www.youtube.com/embed/k3RuBe4HwpM?si=FZJVsoMPeLnOzyfi",
-      "https://www.youtube.com/embed/tTUII4-SUX4?si=EEH_P4Wea2QZBpiu",
-      "https://www.youtube.com/embed/6N_Vu8bEXPw?si=7YlRBw4uVfML0MK4",
-      "https://www.youtube.com/embed/uk3JpkkrkgE?si=3i7B47hARTtOtnr6",
+      "https://www.youtube.com/embed/k3RuBe4HwpM?si=FZJVsoMPeLnOzyfi", // 1
+      "https://www.youtube.com/embed/tTUII4-SUX4?si=EEH_P4Wea2QZBpiu", // 2
+      "https://www.youtube.com/embed/6N_Vu8bEXPw?si=7YlRBw4uVfML0MK4", // 3
+      "https://www.youtube.com/embed/uk3JpkkrkgE?si=3i7B47hARTtOtnr6", // 4
+      "https://www.youtube.com/embed/m55jjwHwF4M?si=iucazK7NlKQcD7wr", // 5
+      "https://www.youtube.com/embed/EcsPzGkUUfY?si=bcoex1-tCi09kOE1", // 6
+      "https://www.youtube.com/embed/tKMLXHeKgcc?si=SOXwKaxKTY8zeBqk", // 7
+      "https://www.youtube.com/embed/AZIjDjfDIaw?si=1rAQpxFG7dyTlPKE", // 8
     ],
     [
       "https://www.youtube.com/embed/E79Uba0R1js?si=hutkBvakh9AN4LGw",

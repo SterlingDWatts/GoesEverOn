@@ -7,17 +7,14 @@ import Typography from "@mui/material/Typography";
 
 export default function Shorts() {
   const videos = [
+    { src: "https://www.youtube.com/embed/BoY0AEwpn0w", title: "Severance: What's Up With The Soap?" },
+    { src: "https://www.youtube.com/embed/MXLzWpViVig", title: "What Are They Refining At Lumon Industries?" },
     { src: "https://www.youtube.com/embed/MlkYMbKPeLo", title: "I Will Remember You" },
     {
       src: "https://www.youtube.com/embed/ehPlzItg9JY",
       title: "Did Insomniac Games Capture Lightning in a Bottle Twice? #spiderman #begreatertogether #spiderman2",
     },
     { src: "https://www.youtube.com/embed/l3clMx8Tcno", title: "Drops of God wine service: Is it Accurate?" },
-    { src: "https://www.youtube.com/embed/vLnK2E-PSKc", title: "Severance Teaser" },
-    {
-      src: "https://www.youtube.com/embed/htJ24Cjfv9w",
-      title: "One of the best Underrated Actors of our Generation.#Foundation #leepace #marvel #lordoftherings",
-    },
   ];
   return (
     <Box id="shorts" textAlign="center" sx={{ padding: "24px" }}>
