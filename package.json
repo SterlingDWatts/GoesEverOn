@@ -27,8 +27,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
+    "commit": "git cz",
+    "build": "react-scripts build",
     "eject": "react-scripts eject",
     "prepare": "husky install"
   },
@@ -46,11 +47,17 @@
   },
   "devDependencies": {
     "eslint-config-prettier": "^9.0.0",
+    "git-cz": "^4.9.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.1.0",
     "prettier": "3.1.0"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
+  },
+  "config": {
+    "commitizen": {
+      "path": "git-cz"
+    }
   }
 }
