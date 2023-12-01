@@ -7,8 +7,6 @@ import Container from "@mui/material/Container";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-// components
-import Copyright from "../Copyright/Copyright";
 
 export default function SignIn() {
   // Todo remove this when adding Google Auth
@@ -63,7 +61,6 @@ export default function SignIn() {
           </Button>
         </Box>
       </Box>
-      <Copyright sx={{ mt: 8, mb: 4 }} />
     </Container>
   );
 }
