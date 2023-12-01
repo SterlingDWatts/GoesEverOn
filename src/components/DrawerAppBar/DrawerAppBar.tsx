@@ -1,8 +1,6 @@
 import * as React from "react";
 import { useMatch } from "react-router-dom";
 // mui
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -36,9 +34,6 @@ const navItems = [
 export default function DrawerAppBar() {
   const isHome = useMatch("/");
   const isCorp = window.location.hostname.startsWith("corp");
-
-  const theme = useTheme();
-  const isSmallOrLarger = useMediaQuery(theme.breakpoints.up("sm"));
 
   const isNotAtTop = useScrollTrigger({
     disableHysteresis: true,
@@ -79,7 +74,7 @@ export default function DrawerAppBar() {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <Slide appear={false} direction="down" in={isSmallOrLarger || !scrollTrigger}>
+      <Slide appear={false} direction="down" in={!scrollTrigger}>
         <AppBar
           component="nav"
           color={!isHome || isNotAtTop ? "default" : "transparent"}
