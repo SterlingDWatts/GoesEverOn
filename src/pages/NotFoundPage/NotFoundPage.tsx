@@ -12,6 +12,7 @@ import goofy from "../../assets/GoofySmall.png";
 
 function NotFoundPage() {
   const theme = useTheme();
+
   return (
     <Page className="NotFoundPage">
       <Box
