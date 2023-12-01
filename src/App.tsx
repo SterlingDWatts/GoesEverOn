@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 // components
 import HomePage from "./pages/HomePage/HomePage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import SignInPage from "./pages/SignInPage/SignInPage";
 // styles
 import "./App.css";
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         {isCorp && <Route path="/signin" element={<SignInPage />} />}
         <Route path="/" element={<HomePage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
   );

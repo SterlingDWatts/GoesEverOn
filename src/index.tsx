@@ -1,11 +1,30 @@
-import React from "react";
+import * as React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import { Link as RouterLink, LinkProps as RouterLinkProps, BrowserRouter } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { LinkProps } from "@mui/material/Link";
 import App from "./App";
 import "./index.css";
 
+const LinkBehavior = React.forwardRef<HTMLAnchorElement, Omit<RouterLinkProps, "to"> & { href: RouterLinkProps["to"] }>(
+  function LinkBehavior({ href, ...other }, ref) {
+    return <RouterLink data-testid="custom-link" ref={ref} to={href} {...other} />;
+  },
+);
+
 const theme = createTheme({
+  components: {
+    MuiLink: {
+      defaultProps: {
+        component: LinkBehavior,
+      } as LinkProps,
+    },
+    MuiButtonBase: {
+      defaultProps: {
+        LinkComponent: LinkBehavior,
+      },
+    },
+  },
   palette: {
     primary: {
       main: "#587F7E",
