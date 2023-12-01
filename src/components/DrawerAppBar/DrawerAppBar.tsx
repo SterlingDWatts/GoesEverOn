@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useMatch } from "react-router-dom";
 // mui
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -25,14 +26,17 @@ import "./DrawerAppBar.css";
 
 const drawerWidth = 240;
 const navItems = [
-  { title: "Home", href: "#home" },
-  { title: "About", href: "#about" },
-  { title: "Links", href: "#links" },
-  { title: "Breakdowns", href: "#breakdowns" },
-  { title: "Shorts", href: "#shorts" },
+  { title: "Home", href: "/#home" },
+  { title: "About", href: "/#about" },
+  { title: "Links", href: "/#links" },
+  { title: "Breakdowns", href: "/#breakdowns" },
+  { title: "Shorts", href: "/#shorts" },
 ];
 
 export default function DrawerAppBar() {
+  const isHome = useMatch("/");
+  const isCorp = window.location.hostname.startsWith("corp");
+
   const theme = useTheme();
   const isSmallOrLarger = useMediaQuery(theme.breakpoints.up("sm"));
 
@@ -61,6 +65,13 @@ export default function DrawerAppBar() {
             </ListItemButton>
           </ListItem>
         ))}
+        {isCorp && (
+          <ListItem disablePadding>
+            <ListItemButton href={"/signin"} sx={{ textAlign: "center" }}>
+              <ListItemText primary={"Sign In"} />
+            </ListItemButton>
+          </ListItem>
+        )}
       </List>
     </Box>
   );
@@ -69,7 +80,11 @@ export default function DrawerAppBar() {
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <Slide appear={false} direction="down" in={isSmallOrLarger || !scrollTrigger}>
-        <AppBar component="nav" color={isNotAtTop ? "default" : "transparent"} elevation={isNotAtTop ? 4 : 0}>
+        <AppBar
+          component="nav"
+          color={!isHome || isNotAtTop ? "default" : "transparent"}
+          elevation={!isHome || isNotAtTop ? 4 : 0}
+        >
           <Toolbar>
             <IconButton
               color="inherit"
@@ -78,7 +93,7 @@ export default function DrawerAppBar() {
               onClick={handleDrawerToggle}
               sx={{ mr: 2, display: { sm: "none" } }}
             >
-              <MenuIcon sx={{ color: isNotAtTop ? "default" : "white" }} />
+              <MenuIcon sx={{ color: !isHome || isNotAtTop ? "default" : "white" }} />
             </IconButton>
             <Box
               sx={{
@@ -90,10 +105,15 @@ export default function DrawerAppBar() {
             </Box>
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
               {navItems.map((item) => (
-                <Button key={item.title} href={item.href} sx={{ color: isNotAtTop ? "#000" : "#fff" }}>
+                <Button key={item.title} href={item.href} sx={{ color: !isHome || isNotAtTop ? "#000" : "#fff" }}>
                   {item.title}
                 </Button>
               ))}
+              {isCorp && (
+                <Button href={"/signin"} sx={{ color: !isHome || isNotAtTop ? "#000" : "#fff" }}>
+                  {"Sign In"}
+                </Button>
+              )}
             </Box>
           </Toolbar>
         </AppBar>
