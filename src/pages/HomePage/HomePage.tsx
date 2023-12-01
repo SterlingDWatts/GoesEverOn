@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 // components
 import About from "./About";
 import Breakdowns from "./Breakdowns";
+import Copyright from "../../components/Copyright/Copyright";
 import Hero from "./Hero";
 import Links from "./Links";
 import Shorts from "./Shorts";
@@ -18,6 +19,7 @@ function HomePage() {
       <Links />
       <Breakdowns />
       <Shorts />
+      <Copyright />
     </Box>
   );
 }
