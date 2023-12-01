@@ -25,6 +25,7 @@ function HomePage() {
       }
     }
   }, [location]);
+
   return (
     <Page className="HomePage" noTopPadding>
       <Hero />
