@@ -1,4 +1,7 @@
 import * as React from "react";
+// mui
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -30,11 +33,16 @@ const navItems = [
 ];
 
 export default function DrawerAppBar() {
+  const theme = useTheme();
+  const isSmallOrLarger = useMediaQuery(theme.breakpoints.up("sm"));
+
   const isNotAtTop = useScrollTrigger({
     disableHysteresis: true,
     threshold: 0,
   });
+
   const scrollTrigger = useScrollTrigger({});
+
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
@@ -60,7 +68,7 @@ export default function DrawerAppBar() {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <Slide appear={false} direction="down" in={!scrollTrigger}>
+      <Slide className="temp" appear={false} direction="down" in={isSmallOrLarger || !scrollTrigger}>
         <AppBar component="nav" color={isNotAtTop ? "default" : "transparent"} elevation={isNotAtTop ? 4 : 0}>
           <Toolbar>
             <IconButton
