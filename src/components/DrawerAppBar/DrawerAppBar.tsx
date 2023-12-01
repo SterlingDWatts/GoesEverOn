@@ -68,7 +68,7 @@ export default function DrawerAppBar() {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <Slide className="temp" appear={false} direction="down" in={isSmallOrLarger || !scrollTrigger}>
+      <Slide appear={false} direction="down" in={isSmallOrLarger || !scrollTrigger}>
         <AppBar component="nav" color={isNotAtTop ? "default" : "transparent"} elevation={isNotAtTop ? 4 : 0}>
           <Toolbar>
             <IconButton
