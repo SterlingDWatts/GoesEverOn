@@ -16,6 +16,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import Slide from "@mui/material/Slide";
+// context
+import { Context } from "../../contexts/userContext";
 // images
 import roadCircle from "../../assets/Road_circle.png";
 import roadJustWordsClearBackground from "../../assets/roadJustWordsClearBackground.png";
@@ -32,8 +34,10 @@ const navItems = [
 ];
 
 export default function DrawerAppBar() {
+  const context = React.useContext(Context);
+
   const isHome = useMatch("/");
-  const isCorp = window.location.hostname.startsWith("corp");
+  const isCorp = window.location.hostname.startsWith("corp") || window.location.hostname.startsWith("localhost");
 
   const isNotAtTop = useScrollTrigger({
     disableHysteresis: true,
@@ -60,7 +64,13 @@ export default function DrawerAppBar() {
             </ListItemButton>
           </ListItem>
         ))}
-        {isCorp && (
+        {!isCorp ? null : context?.user?.picture && context.user.name ? (
+          <ListItem disablePadding>
+            <ListItemButton onClick={context.signOut} sx={{ textAlign: "center" }}>
+              <ListItemText primary={"Sign Out"} />
+            </ListItemButton>
+          </ListItem>
+        ) : (
           <ListItem disablePadding>
             <ListItemButton href={"/signin"} sx={{ textAlign: "center" }}>
               <ListItemText primary={"Sign In"} />
@@ -98,13 +108,17 @@ export default function DrawerAppBar() {
             >
               <img className="circle-logo" src={roadCircle} alt="Logo" height="36px" />
             </Box>
-            <Box sx={{ display: { xs: "none", sm: "block" } }}>
+            <Box sx={{ display: { xs: "none", sm: "flex", direction: "row", alignItems: "center" } }}>
               {navItems.map((item) => (
                 <Button key={item.title} href={item.href} sx={{ color: !isHome || isNotAtTop ? "#000" : "#fff" }}>
                   {item.title}
                 </Button>
               ))}
-              {isCorp && (
+              {!isCorp ? null : context?.user?.picture && context.user.name ? (
+                <Button onClick={context.signOut} sx={{ color: !isHome || isNotAtTop ? "#000" : "#fff" }}>
+                  {"Sign Out"}
+                </Button>
+              ) : (
                 <Button href={"/signin"} sx={{ color: !isHome || isNotAtTop ? "#000" : "#fff" }}>
                   {"Sign In"}
                 </Button>
