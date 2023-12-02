@@ -12,7 +12,7 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
 function App() {
-  const isCorp = window.location.hostname.startsWith("corp");
+  const isCorp = window.location.hostname.startsWith("corp") || window.location.hostname.startsWith("localhost");
 
   return (
     <div className="App">
