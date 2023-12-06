@@ -1,11 +1,19 @@
 import * as React from "react";
 import ReactDOM from "react-dom/client";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import { Link as RouterLink, LinkProps as RouterLinkProps, BrowserRouter } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Link as RouterLink,
+  LinkProps as RouterLinkProps,
+  RouterProvider,
+} from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { LinkProps } from "@mui/material/Link";
 import UserProvider from "./contexts/userContext";
 import App from "./App";
+import HomePage from "./pages/HomePage/HomePage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import SignInPage from "./pages/SignInPage/SignInPage";
 import "./index.css";
 
 const LinkBehavior = React.forwardRef<HTMLAnchorElement, Omit<RouterLinkProps, "to"> & { href: RouterLinkProps["to"] }>(
@@ -37,18 +45,28 @@ const theme = createTheme({
   },
 });
 
+const router = createBrowserRouter([
+  {
+    path: "/*",
+    element: <App />,
+    children: [
+      { path: "signin", element: <SignInPage /> },
+      { path: "", element: <HomePage /> },
+      { path: "*", element: <NotFoundPage /> },
+    ],
+  },
+]);
+
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 
 root.render(
   <React.StrictMode>
     <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID || ""}>
-      <BrowserRouter>
-        <ThemeProvider theme={theme}>
-          <UserProvider>
-            <App />
-          </UserProvider>
-        </ThemeProvider>
-      </BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <UserProvider>
+          <RouterProvider router={router} />
+        </UserProvider>
+      </ThemeProvider>
     </GoogleOAuthProvider>
   </React.StrictMode>,
 );

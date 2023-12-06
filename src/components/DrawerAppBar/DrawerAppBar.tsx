@@ -16,8 +16,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import Slide from "@mui/material/Slide";
-// context
-import { Context } from "../../contexts/userContext";
+// hooks
+import useCorp from "../../hooks/useCorp";
+import useUser from "../../hooks/useUser";
 // images
 import roadCircle from "../../assets/Road_circle.png";
 import roadJustWordsClearBackground from "../../assets/roadJustWordsClearBackground.png";
@@ -34,10 +35,10 @@ const navItems = [
 ];
 
 export default function DrawerAppBar() {
-  const context = React.useContext(Context);
+  const { user, signOut } = useUser();
 
   const isHome = useMatch("/");
-  const isCorp = window.location.hostname.startsWith("corp") || window.location.hostname.startsWith("localhost");
+  const isCorp = useCorp();
 
   const isNotAtTop = useScrollTrigger({
     disableHysteresis: true,
@@ -64,9 +65,9 @@ export default function DrawerAppBar() {
             </ListItemButton>
           </ListItem>
         ))}
-        {!isCorp ? null : context?.user?.picture && context.user.name ? (
+        {!isCorp ? null : user ? (
           <ListItem disablePadding>
-            <ListItemButton onClick={context.signOut} sx={{ textAlign: "center" }}>
+            <ListItemButton onClick={signOut} sx={{ textAlign: "center" }}>
               <ListItemText primary={"Sign Out"} />
             </ListItemButton>
           </ListItem>
@@ -114,8 +115,8 @@ export default function DrawerAppBar() {
                   {item.title}
                 </Button>
               ))}
-              {!isCorp ? null : context?.user?.picture && context.user.name ? (
-                <Button onClick={context.signOut} sx={{ color: !isHome || isNotAtTop ? "#000" : "#fff" }}>
+              {!isCorp ? null : user ? (
+                <Button onClick={signOut} sx={{ color: !isHome || isNotAtTop ? "#000" : "#fff" }}>
                   {"Sign Out"}
                 </Button>
               ) : (

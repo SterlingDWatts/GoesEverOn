@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 // mui
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
@@ -8,33 +8,20 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 // google auth
 import { GoogleLogin, CredentialResponse } from "@react-oauth/google";
-import { decodeToken } from "react-jwt";
-import { Context, User } from "../../contexts/userContext";
+import useUser from "../../hooks/useUser";
+import { decodeUserToken } from "../../utils/utils";
 
 export default function SignIn() {
-  const navigate = useNavigate();
-  const context = React.useContext(Context);
+  const { setUser, user } = useUser();
 
-  if (!context?.setUser) {
-    throw new Error("UserContext is cannot be used outside of UserProvider");
-  }
-
-  React.useEffect(() => {
-    if (context.user?.name) {
-      navigate("/");
-    }
-  }, [context]);
-
-  const handleResponse = (response: CredentialResponse) => {
-    if (response.credential) {
-      const token = decodeToken(response.credential || "");
-
-      context.setUser(token as User);
-    }
+  const handleResponse = ({ credential = "" }: CredentialResponse) => {
+    const user = decodeUserToken(credential);
+    if (user) setUser(user);
   };
 
   return (
     <Container component="main" maxWidth="xs">
+      {user && <Navigate to="/" replace />}
       <Box
         sx={{
           marginTop: 8,
