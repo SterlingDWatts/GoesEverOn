@@ -10,6 +10,7 @@ import {
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { LinkProps } from "@mui/material/Link";
 import UserProvider from "./contexts/userContext";
+import ToastProvider from "./contexts/toastContext";
 import App from "./App";
 import HomePage from "./pages/HomePage/HomePage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
@@ -63,9 +64,11 @@ root.render(
   <React.StrictMode>
     <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID || ""}>
       <ThemeProvider theme={theme}>
-        <UserProvider>
-          <RouterProvider router={router} />
-        </UserProvider>
+        <ToastProvider>
+          <UserProvider>
+            <RouterProvider router={router} />
+          </UserProvider>
+        </ToastProvider>
       </ThemeProvider>
     </GoogleOAuthProvider>
   </React.StrictMode>,

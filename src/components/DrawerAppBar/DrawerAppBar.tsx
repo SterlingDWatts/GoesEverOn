@@ -18,6 +18,7 @@ import Button from "@mui/material/Button";
 import Slide from "@mui/material/Slide";
 // hooks
 import useCorp from "../../hooks/useCorp";
+import useToast from "../../hooks/useToast";
 import useUser from "../../hooks/useUser";
 // images
 import roadCircle from "../../assets/Road_circle.png";
@@ -36,7 +37,7 @@ const navItems = [
 
 export default function DrawerAppBar() {
   const { user, signOut } = useUser();
-
+  const { setToast } = useToast();
   const isHome = useMatch("/");
   const isCorp = useCorp();
 
@@ -53,6 +54,11 @@ export default function DrawerAppBar() {
     setMobileOpen((prevState) => !prevState);
   };
 
+  const handleSignOut = () => {
+    signOut();
+    setToast({ message: "Successfully logged out", severity: "success" });
+  };
+
   const drawer = (
     <Box className="DrawerAppBar" onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <img className="words-logo" alt="road goes ever on and on" src={roadJustWordsClearBackground} />
@@ -67,7 +73,7 @@ export default function DrawerAppBar() {
         ))}
         {!isCorp ? null : user ? (
           <ListItem disablePadding>
-            <ListItemButton onClick={signOut} sx={{ textAlign: "center" }}>
+            <ListItemButton onClick={handleSignOut} sx={{ textAlign: "center" }}>
               <ListItemText primary={"Sign Out"} />
             </ListItemButton>
           </ListItem>
@@ -116,7 +122,7 @@ export default function DrawerAppBar() {
                 </Button>
               ))}
               {!isCorp ? null : user ? (
-                <Button onClick={signOut} sx={{ color: !isHome || isNotAtTop ? "#000" : "#fff" }}>
+                <Button onClick={handleSignOut} sx={{ color: !isHome || isNotAtTop ? "#000" : "#fff" }}>
                   {"Sign Out"}
                 </Button>
               ) : (
