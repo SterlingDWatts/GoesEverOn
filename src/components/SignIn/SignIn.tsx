@@ -9,14 +9,19 @@ import Typography from "@mui/material/Typography";
 // google auth
 import { GoogleLogin, CredentialResponse } from "@react-oauth/google";
 import useUser from "../../hooks/useUser";
+import useToast from "../../hooks/useToast";
 import { decodeUserToken } from "../../utils/utils";
 
 export default function SignIn() {
   const { setUser, user } = useUser();
+  const { setToast } = useToast();
 
   const handleResponse = ({ credential = "" }: CredentialResponse) => {
     const user = decodeUserToken(credential);
-    if (user) setUser(user);
+    if (user) {
+      setUser(user);
+      setToast({ message: "Successfully logged in", severity: "success" });
+    }
   };
 
   return (

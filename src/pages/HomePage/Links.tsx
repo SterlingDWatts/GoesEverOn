@@ -17,6 +17,7 @@ interface LinkProps {
   icon: React.ReactNode;
   title: string;
   href?: string;
+  target?: string;
   onClick?: () => void;
 }
 
@@ -30,12 +31,37 @@ function Link({ icon, title, ...props }: LinkProps) {
 
 export default function Links() {
   const links = [
-    { title: "youtube", href: "https://www.youtube.com/@GoesEverOn", icon: <YouTube fill="white" /> },
-    { title: "TikTok", href: "https://www.tiktok.com/@goeseveron?_t=8gqLnTebFpT&_r=1", icon: <TikTok fill="white" /> },
-    { title: "Twitter", href: "https://twitter.com/GoesEverOn", icon: <Twitter fill="white" /> },
-    { title: "Instagram", href: "https://www.instagram.com/GoesEverOn", icon: <Instagram fill="white" /> },
-    { title: "Facebook", href: "https://www.facebook.com/GoesEverOnAndOn", icon: <Facebook fill="white" /> },
-    { title: "Spotify", href: "https://open.spotify.com/show/3Bop2xzIH9wK4yZfva2CAw", icon: <Spotify fill="white" /> },
+    {
+      title: "youtube",
+      href: "https://www.youtube.com/@GoesEverOn",
+      target: "_blank",
+      icon: <YouTube fill="white" />,
+    },
+    {
+      title: "TikTok",
+      href: "https://www.tiktok.com/@goeseveron?_t=8gqLnTebFpT&_r=1",
+      target: "_blank",
+      icon: <TikTok fill="white" />,
+    },
+    { title: "Twitter", href: "https://twitter.com/GoesEverOn", target: "_blank", icon: <Twitter fill="white" /> },
+    {
+      title: "Instagram",
+      href: "https://www.instagram.com/GoesEverOn",
+      target: "_blank",
+      icon: <Instagram fill="white" />,
+    },
+    {
+      title: "Facebook",
+      href: "https://www.facebook.com/GoesEverOnAndOn",
+      target: "_blank",
+      icon: <Facebook fill="white" />,
+    },
+    {
+      title: "Spotify",
+      href: "https://open.spotify.com/show/3Bop2xzIH9wK4yZfva2CAw",
+      target: "_blank",
+      icon: <Spotify fill="white" />,
+    },
   ];
   return (
     <Box id="links" sx={{ padding: "48px" }}>
