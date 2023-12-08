@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 
 export default function Shorts() {
   const videos = [
+    { src: "https://www.youtube.com/embed/TGh6pVMIELY", title: "Excited about the new Fallout trailer!" },
     { src: "https://www.youtube.com/embed/BoY0AEwpn0w", title: "Severance: What's Up With The Soap?" },
     { src: "https://www.youtube.com/embed/MXLzWpViVig", title: "What Are They Refining At Lumon Industries?" },
     { src: "https://www.youtube.com/embed/MlkYMbKPeLo", title: "I Will Remember You" },
