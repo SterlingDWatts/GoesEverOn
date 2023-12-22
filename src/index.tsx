@@ -15,6 +15,7 @@ import App from "./App";
 import HomePage from "./pages/HomePage/HomePage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import SignInPage from "./pages/SignInPage/SignInPage";
+import config from "./config";
 import "./index.css";
 
 const LinkBehavior = React.forwardRef<HTMLAnchorElement, Omit<RouterLinkProps, "to"> & { href: RouterLinkProps["to"] }>(
@@ -62,7 +63,7 @@ const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
 
 root.render(
   <React.StrictMode>
-    <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID || ""}>
+    <GoogleOAuthProvider clientId={config.GOOGLE_CLIENT_ID}>
       <ThemeProvider theme={theme}>
         <ToastProvider>
           <UserProvider>
