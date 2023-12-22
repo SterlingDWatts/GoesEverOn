@@ -37,7 +37,7 @@ export default function SignIn() {
         user_email: (payload as User).email,
         user_sub: (payload as User).sub,
       });
-      setUser({ ...payload, ...response }, credential);
+      setUser({ ...payload, ...response.data.data }, credential);
       setToast({ message: "Successfully logged in", severity: "success" });
     } catch (error) {
       console.error(error);
